@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Light</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1 class="logo" aria-label="Green Light">
+      <span style="color:#ff595e">G</span><span style="color:#ffca3a">r</span><span style="color:#8ac926">e</span><span style="color:#1982c4">e</span><span style="color:#b05cff">n</span>
+      <span class="light">Light</span>
+    </h1>
+
+    <!-- Home -->
+    <section id="home" class="card">
+      <label for="name">Your name</label>
+      <input id="name" maxlength="14" placeholder="Type your name" autocomplete="off">
+      <button id="create" class="btn yellow">Create room</button>
+      <div class="or">or join a friend</div>
+      <div class="row">
+        <input id="code" maxlength="4" placeholder="CODE" autocomplete="off">
+        <button id="join" class="btn green">Join</button>
+      </div>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <!-- Room -->
+    <section id="room" class="hidden">
+      <div class="card room-head">
+        <div>
+          <span class="small">Room code</span>
+          <div id="roomCode" class="code"></div>
+        </div>
+        <button id="copy" class="btn small-btn">Copy</button>
+      </div>
+
+      <button id="pad" class="pad hidden" aria-live="polite">
+        <span id="padText"></span>
+        <span id="padSub"></span>
+      </button>
+
+      <div class="card">
+        <div class="board-head">
+          <h2>Scoreboard</h2>
+          <span id="roundBadge" class="badge"></span>
+        </div>
+        <ul id="players" class="players"></ul>
+        <div id="settings" class="settings">
+          <label for="rounds">Rounds</label>
+          <select id="rounds">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <p id="hint" class="hint"></p>
+      </div>
+
+      <div class="actions">
+        <button id="start" class="btn green hidden">Start game</button>
+        <button id="next" class="btn yellow hidden">Next round</button>
+      </div>
+      <p id="error2" class="error" role="alert"></p>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
